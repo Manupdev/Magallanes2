@@ -1,0 +1,157 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% load cart_tag %}
+
+ <!-- checkout area start -->
+ <form method="post" action="{% url 'place_order' %}">
+    {% csrf_token %}
+    <div class="checkout-area pt-100px pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="billing-info-wrap">
+                        <h3>Billing Details</h3>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Nombre</label>
+                                    <input type="text" value ="{{user.first_name}} " />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Apellido</label>
+                                    <input type="text" value ="{{user.last_name}} " />
+                                </div>
+                            </div>
+                            <!--<div class="col-lg-12">
+                                <div class="billing-info mb-4">
+                                    <label>Company Name</label>
+                                    <input type="text" />
+                                </div>
+                            </div> 
+                            <div class="col-lg-12">
+                                <div class="billing-select mb-4">
+                                    <label>Country</label>
+                                    <select>
+                                        <option>Select a country</option>
+                                        <option>Azerbaijan</option>
+                                        <option>Bahamas</option>
+                                        <option>Bahrain</option>
+                                        <option>Bangladesh</option>
+                                        <option>Barbados</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-12">
+                                <div class="billing-info mb-4">
+                                    <label>Direccion</label>
+                                    <input class="billing-address" placeholder="Calle y numero" type="text" />
+                                    <input placeholder="Departamento, piso, etc" type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="billing-info mb-4">
+                                    <label>Provincia</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Ciudad</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Codigo Postal</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>Telefono</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="billing-info mb-4">
+                                    <label>E-mail</label>
+                                    <input type="text" value="{{user.email}} readonly"/>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        
+                        <div class="additional-info-wrap">
+                            <h4>Informacion Adicional</h4>
+                            <div class="additional-info">
+                                <label>Agregar Observacion</label>
+                                <textarea placeholder="Nota para tu delivery. " name="message"></textarea>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-md-30px mt-lm-30px ">
+                    <div class="your-order-area">
+                        <h3>Tu Compra</h3>
+                        <div class="your-order-wrap gray-bg-4">
+                            <div class="your-order-product-info">
+                                <div class="your-order-top">
+                                    <ul>
+                                        <li>Producto</li>
+                                        <li>Total</li>
+                                    </ul>
+                                </div>
+                                <div class="your-order-middle">
+                                    <ul>
+                                        {% for key,value in request.session.cart.items  %}
+                                        <li><span class="order-middle-left">{{value.name}} {{value.quantify}}</span> <span
+                                            class="order-price">${{ value.price|multiply:value.quantity }}</span></li>
+                                        {% endfor %}
+                                    
+                                    </ul>
+                                </div>
+                                <div class="your-order-bottom">
+                                    <ul>
+                                        <li class="your-order-shipping">Envio</li>
+                                        <li>Variable segun zona</li>
+                                    </ul>
+                                </div>
+                                <div class="your-order-total">
+                                    <ul>
+                                        <li class="order-total">Total</li>
+                                        <li>${{cart_total_amount}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="Place-order mt-25">
+                            <a class="btn-hover" href="#"><button type="submit" class="text-light">Continuar</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- checkout area end -->
+</form>
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
