@@ -165,7 +165,7 @@ def cart_add(request,id):
     cart=Cart(request)
     product =Product.objects.get(id=id)
     cart.add(product=product)
-    return redirect('home')
+    return redirect('products')
 
 
 def item_clear(request,id):
