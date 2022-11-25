@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store_app',
     'ckeditor',
-    'cart'
+    'cart',
+    'fontawesomefree',
 ]
 
 CART_SESSION_ID ='cart'

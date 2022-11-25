@@ -14,6 +14,8 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.ico' %}" />
     
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/font.awesome.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/pe-icon-7-stroke.css' %}" />
@@ -46,7 +48,7 @@
                             <div class="top-nav">
                                 <ul>
                                     <li><a href="tel:0123456789"><i class="fa fa-phone"></i> 38555555</a></li>
-                                    <li><a href="mailto:demo@example.com"><i class="fa fa-envelope-o"></i> magallanes@example.com</a></li>
+                                    <li><a href="mailto:demo@example.com"><i class="fa fa-envelope"></i> magallanessgo@hotmail.com</a></li>
                                   <!--  <li><a href="my-account.html"><i class="fa fa-user"></i> Account</a></li>
                                     {% if user.is_authenticated %}
                                     <li><a href="{% url 'logout' %}"><i class = "fa fa-unlock"></i>Logout</a></li>
@@ -67,7 +69,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-lg-3 col">
                             <div class="header-logo">
-                                <a href="index.html"><img src=" {% static 'assets/images/logo/logo.png' %}" alt="Site Logo" /></a>
+                                <a href="index.html"><img src=" {% static 'assets/images/logomaga1.jpg' %}" alt="Site Logo" /></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block">
@@ -81,9 +83,7 @@
                         <div class="col-lg-3 col">
                             <div class="header-actions">
                                 <!-- Single Wedge Start -->
-                                <a href="#offcanvas-wishlist" class="header-action-btn offcanvas-toggle">
-                                    <i class="pe-7s-like"></i>
-                                </a>
+                                
                                 <!-- Single Wedge End -->
                                 <a href="#offcanvas-cart" class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                     <i class="pe-7s-shopbag"></i>
@@ -143,14 +143,14 @@
                     <div class="header-nav">
                         <div class="main-menu position-relative">
                             <ul>
-                                <li class="dropdown"><a href="/">Home <i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="/">Home </a>
                                    <!-- <ul class="sub-menu">
                                         <li><a href="index.html">Home 1</a></li>
                                         <li><a href="index-2.html">Home 2</a></li>
                                     </ul>-->
                                 </li>
                                 <li><a href="about.html">About</a></li>
-                                <li class="dropdown position-static"><a href="/products/">Productos <i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown position-static"><a href="/products/">Productos </a>
                                    <!-- <ul class="mega-menu d-block">
                                         <li class="d-flex">
                                             <ul class="d-block">
@@ -559,13 +559,12 @@
                                     </p>
                                     <ul class="link-follow">
                                         <li>
-                                            <a class="m-0" title="Twitter" target="_blank" rel="noopener noreferrer" href="#"><i class="fa fa-facebook"
-                                                aria-hidden="true"></i></a>
+                                            <a class="m-0" title="Twitter" target="_blank" rel="noopener noreferrer" href="#"><i class="fa-brands fa-facebook" ></i></a>
                                         </li>
                                        
                                         
                                         <li>
-                                            <a title="Instagram" target="_blank" rel="noopener noreferrer" href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                                            <a title="Instagram" target="_blank" rel="noopener noreferrer" href="#"><i class="fa-brands fa-instagram" ></i>
                                             </a>
                                         </li>
                                     </ul>
@@ -628,7 +627,7 @@
     <!-- Modal -->
     {% for i in product %}
 
-    <div class="modal modal-2 fade" id="exampleModal- {{forloop.counter}}" tabindex="-1" role="dialog">
+    <div class="modal modal-2 fade" id="exampleModal-{{forloop.counter}}" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -671,41 +670,37 @@
                                 </div>
                                 <div class="pro-details-rating-wrap">
                                     <div class="rating-product">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                        
                                     </div>
-                                    <span class="read-review"><a class="reviews" href="#">( 2 Review )</a></span>
+                                    
                                 </div>
-                                <p class="mt-30px">L{{i.description | safe}}</p>
+                                <p class="mt-30px">{{i.description | safe}}</p>
                                 <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>SKU:</span>
+                                    <span></span>
                                     <ul class="d-flex">
                                         <li>
-                                            <a href="#">Ch-256xl</a>
+                                            <a href="#"></a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>Categories: </span>
+                                    <span></span>
                                     <ul class="d-flex">
                                         <li>
-                                            <a href="#">{{i.categories}} </a>
+                                            <a href="#"></a>
                                         </li>
                                         <li>
-                                            <a href="#">ETC</a>
+                                            <a href="#"></a>
                                         </li>
 
                                     </ul>
                                 </div>
                                 <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>Tags: </span>
+                                    <span></span>
                                     <ul class="d-flex">
                                         <li>
                                             {%for tag in i.tag_set.all %}
-                                            <a href="#">{{tag.name}} , </a>
+                                            <a href="#"> </a>
                                             {% endfor %}
                                         </li>
                                     </ul>
@@ -715,12 +710,10 @@
                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
                                     </div>
                                     <div class="pro-details-cart">
-                                        <button class="add-cart"> Add To
-                                            Cart</button>
+                                        <button class="add-cart"> Agregar a
+                                            Carrito</button>
                                     </div>
-                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
-                                    </div>
+                                    
                                 </div>
                                 <div class="payment-img">
                                     <a href="#"><img src="assets/images/icons/payment.png" alt=""></a>
@@ -743,7 +736,7 @@
                 <div class="modal-body text-center">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="pe-7s-close"></i></button>
                     <div class="tt-modal-messages">
-                        <i class="pe-7s-check"></i> Added to cart successfully!
+                        <i class="pe-7s-check"></i> Agregado al carrito!
                     </div>
                     <div class="tt-modal-product">
                         <div class="tt-img">
@@ -751,7 +744,7 @@
                         </div>
                         <h2 class="tt-title"><a href="#">{{i.name}}</a></h2>
                         <br>
-                        <a href="{% url 'cart_add' i.id %}">Add To Cart</a>
+                        <a href="{% url 'cart_add' i.id %}">Agregar al carrito</a>
                     </div>
                 </div>
             </div>
@@ -759,43 +752,9 @@
     </div>
     {% endfor %}     
     <!-- Modal wishlist -->
-    <div class="modal customize-class fade" id="exampleModal-Wishlist" tabindex="-1"   aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="pe-7s-close"></i></button>
-                    <div class="tt-modal-messages">
-                        <i class="pe-7s-check"></i> Added to Wishlist successfully!
-                    </div>
-                    <div class="tt-modal-product">
-                        <div class="tt-img">
-                            <img src="assets/images/product-image/1.webp" alt="Modern Smart Phone">
-                        </div>
-                        <h2 class="tt-title"><a href="#">Modern Smart Phone</a></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>    
+    
     <!-- Modal compare -->
-    <div class="modal customize-class fade" id="exampleModal-Compare" tabindex="-1"   aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="pe-7s-close"></i></button>
-                    <div class="tt-modal-messages">
-                        <i class="pe-7s-check"></i> Added to compare successfully!
-                    </div>
-                    <div class="tt-modal-product">
-                        <div class="tt-img">
-                            <img src="assets/images/product-image/1.webp" alt="Modern Smart Phone">
-                        </div>
-                        <h2 class="tt-title"><a href="#">Modern Smart Phone</a></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
                 
     
