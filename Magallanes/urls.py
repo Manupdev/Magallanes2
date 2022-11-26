@@ -26,8 +26,8 @@ urlpatterns = [
     path('cart/item_increment/<int:id>/',
             views.item_increment, name="item_increment"),
     path('cart/item_decrement/<int:id>/', views.item_decrement,name="item_decrement"),
-    path('cart/cart_clear/<int:id>/', views.cart_clear,name= "cart_clear"),
-    path('cart/cart-detail/<int:id>/', views.cart_detail,name="cart_detail"),
+    path('cart/cart_clear/', views.cart_clear,name= "cart_clear"),
+    path('cart/cart-detail/', views.cart_detail,name="cart_detail"),
     path('cart/checkout', views.Check_out, name="checkout"), 
     path('cart/checkout/placeorder', views.PLACE_ORDER,name="place_order")
 

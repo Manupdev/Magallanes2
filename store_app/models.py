@@ -73,6 +73,9 @@ class Images(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
 
 
+
+
+
     
 
 class Tag(models.Model):

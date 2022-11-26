@@ -188,7 +188,7 @@ def item_decrement(request,id):
     return redirect('cart_detail')
 
 
-def cart_clear(request,id):
+def cart_clear(request):
     cart=Cart(request)
     cart.clear()
     return redirect('cart_detail')
