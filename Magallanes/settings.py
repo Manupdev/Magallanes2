@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'cart',
     'fontawesomefree',
+    'mercadopago'
 ]
 
 CART_SESSION_ID ='cart'

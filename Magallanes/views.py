@@ -208,3 +208,6 @@ def PLACE_ORDER(request):
         firstname = request.POST.get('firstname')
 
     return render(request, 'cart/placeorder.html')
+
+def mptest(request):
+    return render(request, 'cart/mptest.html')
