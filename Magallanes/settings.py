@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1o4#t@sj*$40!k-g5%(@-k7wy@9wyi@ng#@1rm@uttr_62rkd9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['santiagocanovari.pythonanywhere.com']
+ALLOWED_HOSTS = ['santiagocanovari.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'Magallanes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
