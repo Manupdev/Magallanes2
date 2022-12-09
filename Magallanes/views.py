@@ -5,7 +5,9 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from cart.cart import Cart
+from store_app.tasks import send_mail_func
 
 def BASE(request):
     return render(request, 'main/base.html')
@@ -208,3 +210,7 @@ def PLACE_ORDER(request):
         firstname = request.POST.get('firstname')
 
     return render(request, 'cart/placeorder.html')
+
+def send_email_to_all(request):
+    send_mail_func.delay()
+    return HttpResponse("Sent")

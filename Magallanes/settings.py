@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+
 import os
 from pathlib import Path
 
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'cart',
     'fontawesomefree',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 CART_SESSION_ID ='cart'
@@ -130,12 +133,26 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'santiagocanovari@gmail.com'
+EMAIL_HOST_PASSWORD = 'REDACTED'
+DEFAULT_FROM_EMAIL='Magallanes Testing <santiagocanovari@gmail.com>'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CELERY SETTINGS
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIME_ZONE = 'America/Argentina/Buenos_Aires'
+CELERY_RESULT_BACKEND = 'django-db'
+
+#CELERY BEAT SETTINGS
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

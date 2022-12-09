@@ -17,6 +17,7 @@ urlpatterns = [
     path('register/', views.HandleRegister, name="register"),
     path('login/', views.HandleLogin, name="login"),
     path('logout/', views.HandleLogout, name="logout"),
+    path('sendmail/',views.send_email_to_all, name="sendmail"),
     
 
 
