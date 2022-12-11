@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from cart.cart import Cart
+from django.shortcuts import render
+import mercadopago
 
 def BASE(request):
     return render(request, 'main/base.html')
@@ -209,5 +211,25 @@ def PLACE_ORDER(request):
 
     return render(request, 'cart/placeorder.html')
 
-def mptest(request):
-    return render(request, 'cart/mptest.html')
+mp = mercadopago.SDK("TEST-563546354855081-112713-f24d03316d6440a1da5189eaf4d13863-238252620")
+
+def mercadopagoCheckout(request):
+    # create a preference object
+    preference = {
+        "items": [
+            {
+                "title": "My item",
+                "quantity": 1,
+                "unit_price": 10.0
+            }
+        ]
+    }
+
+    # create the payment preference
+    payment = mp.preference().create(preference)
+
+    # generate the checkout link
+    checkout_link = payment["response"]["init_point"]
+
+    # render the checkout.html template and pass the checkout link
+    return render(request, "cart/MercadopagoCheckout.html", {"checkout_link": checkout_link})

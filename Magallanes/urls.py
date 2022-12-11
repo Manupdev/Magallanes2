@@ -30,7 +30,7 @@ urlpatterns = [
     path('cart/cart-detail/', views.cart_detail,name="cart_detail"),
     path('cart/checkout', views.Check_out, name="checkout"), 
     path('cart/checkout/placeorder', views.PLACE_ORDER,name="place_order"),
-    path('cart/mptest', views.mptest, name="mptest")
+    path('cart/MercadopagoCheckout', views.mercadopagoCheckout, name="mercadopagoCheckout")
 
 
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
