@@ -214,20 +214,29 @@ def PLACE_ORDER(request):
 mp = mercadopago.SDK("TEST-563546354855081-112713-f24d03316d6440a1da5189eaf4d13863-238252620")
 
 def mercadopagoCheckout(request):
+
+
+    items = []
+    cart = request.session['cart']
+    for value in request.session['cart'].items():
+        item=value[1]
+        item_dict = {
+            "title": item['name'],
+            "quantity": item['quantity'],
+            "currency_id": "ARS",
+            "unit_price":float(item['price'])
+        }
+        print(item_dict)
+        items.append(item_dict)
+
     # create a preference object
     preference = {
-        "items": [
-            {
-                "title": "My item",
-                "quantity": 1,
-                "unit_price": 10.0
-            }
-        ]
+        "items": items
     }
 
     # create the payment preference
     payment = mp.preference().create(preference)
-
+    
     # generate the checkout link
     checkout_link = payment["response"]["init_point"]
 
